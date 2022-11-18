@@ -2,7 +2,17 @@
 
 var vid = document.getElementById("videoplayer")
 
-// play ok
+// page load 
+document.addEventListener("DOMContentLoaded", function(){
+    vid.preload = 'auto'
+    vid.autoplay = false;
+    vid.loop = false;
+    // initialize
+    vid.defaultPlaybackRate = 1;
+    vid.volume = 1;
+})
+
+// play
 function playVid(){
     vid.play()
 }
@@ -12,7 +22,7 @@ btn_play.addEventListener("click", function(){
     playVid()
 });
 
-// pause ok
+// pause
 function pauseVid(){
     vid.pause()
 }
@@ -36,15 +46,6 @@ btn_mute.addEventListener("click", function(){
     muteVid()
 });
 
-// page load 
-document.addEventListener("DOMContentLoaded", function(){
-    vid.preload = 'auto'
-    vid.autoplay = false;
-    vid.loop = false;
-    // initialize
-    vid.defaultPlaybackRate = 1;
-    vid.volume = 1;
-})
 
 
 // skip 
@@ -98,26 +99,11 @@ slower.addEventListener("click", function(){
 })
 
 
-
-
-
-
-// slider
-// function setVolume(){
-//     document.getElementById("slider").innerHTML = volume_value;
-//     vid.volume = volume_value / 100;
-
-// var btn_slider = document.getElementById("slider")
-// btn_slider.addEventListener("click", function(){
-//     sliderVid()
-// });
-
-
 //volume slider
 document.querySelector('#slider').addEventListener('change', function() {
     vid.volume = (document.querySelector('#slider').value / 100);
     volume.textContent = (document.querySelector('#slider').value);
     if (vid.muted === true) {
         muteVid()
-    };
+    }
 })
