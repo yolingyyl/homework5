@@ -117,5 +117,7 @@ slower.addEventListener("click", function(){
 document.querySelector('#slider').addEventListener('change', function() {
     vid.volume = (document.querySelector('#slider').value / 100);
     volume.textContent = (document.querySelector('#slider').value);
-    muteVid();
+    if (vid.muted === true) {
+        muteVid()
+    };
 })
